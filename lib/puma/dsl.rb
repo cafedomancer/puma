@@ -1066,6 +1066,14 @@ module Puma
       @options[:http_content_length_limit] = limit
     end
 
+    # TODO
+    #
+    # @example
+    #   hide_version_from_headers
+    def hide_version_from_headers(answer=true)
+      @options[:hide_version_from_headers] = answer
+    end
+
     private
 
     # To avoid adding cert_pem and key_pem as URI params, we store them on the

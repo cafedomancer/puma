@@ -548,6 +548,22 @@ class TestConfigFile < TestConfigFileBase
     assert_equal 10000, conf.final_options[:http_content_length_limit]
   end
 
+  def test_hide_version_from_headers_default
+    conf = Puma::Configuration.new
+    conf.load
+
+    assert_equal false, conf.options[:hide_version_from_headers]
+  end
+
+  def test_hide_version_from_headers_overwrite
+    conf = Puma::Configuration.new do |c|
+      c.hide_version_from_headers
+    end
+    conf.load
+
+    assert_equal true, conf.options[:hide_version_from_headers]
+  end
+
   private
 
   def assert_run_hooks(hook_name, options = {})

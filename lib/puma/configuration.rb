@@ -135,6 +135,7 @@ module Puma
       environment: 'development'.freeze,
       # Number of seconds to wait until we get the first data for the request
       first_data_timeout: 30,
+      hide_version_from_headers: false,
       io_selector_backend: :auto,
       log_requests: false,
       logger: STDOUT,
